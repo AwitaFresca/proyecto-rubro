@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Producto } from 'src/models/productos.interface';
+import { ProductoService } from './services/producto.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'proyecto-rubro';
+  public productos: Producto [] = [];
+  constructor(private productoService:ProductoService){
+
+  }
 }
