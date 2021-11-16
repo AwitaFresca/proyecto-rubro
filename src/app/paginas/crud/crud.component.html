@@ -1,4 +1,4 @@
-<p>crud works!</p>
+
 
 <!--
 <div class="container">
@@ -50,31 +50,52 @@
   </div>
 </div>
 -->
-<div class="media" *ngFor="let producto of productos">
-
-  <div class="media-figure">
-    <img [src]="producto.url">
-  </div>
-  <div class="media-body">
-    <p>{{producto.nombre}}</p>
-    <div class="btn--group">
-      <button class="btn--green btn--s btn1">Editar</button>
-      <button class="btn--red btn--s btn2" (click)='(borrarProducto)'>Eliminar</button>
-    </div>
-  </div>
-</div>
-
-<form (ngSubmit)="submit()" [formGroup]="form" #f="ngForm">
+<div style="width: 100%;" class="container1"></div>
+  <div style="width: 50%; margin: auto;">
+  <h2>Agregar productos</h2>
+  <form (ngSubmit)="submit()" [formGroup]="form" #f="ngForm">
     <input type="hidden" formControlName="id">
 
   <label for="nombre">Nombre</label>
   <input matInput placeholder="Nombre" class="form-control" type="text" formControlName="nombre">
 
+  <label for="nombre">Descripcion</label>
+  <input matInput placeholder="Descripcion" class="form-control" type="text" formControlName="descripcion">
+
   <label for="url">Imagen</label>
   <input matInput placeholder="url" class="form-control" type="text" formControlName="url">
+  <div style="text-align: center;">
+    <button style="margin-top:2%; text-align:center" class="btn btn-info" id="submit" mat-raised-button type="submit"  >Agregar</button>
+  </div>
+  </form>
+</div>
 
-  <button id="submit" mat-raised-button type="submit" color="primary">Submit</button>
-</form>
+  <div class="media" *ngFor="let producto of productos">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="row">
+            <div class="media-figure">
+            <img class="imagen1" style="width: 150px; height: 100px;" [src]="producto.url">
+            </div>
+          </th>
+          <th scope="col">
+          <div style="text-align: center;" class="">
+            <h5>{{producto.nombre}}</h5>
+            <p>{{producto.descripcion}}</p>
+            <div  class="btn--group">
+              <button style="margin: auto;" class="btn btn-warning" (click)='irEdit(producto)'>Editar</button>
+              <button class="btn btn-danger" (click)='borrarProducto(producto.id)'>Eliminar</button>
+            </div>  
+          </div>
+        </th>
+        </tr>
+  </thead>
+  </table>
+</div>
+
+
+
 <!--
 
 

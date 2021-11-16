@@ -14,12 +14,14 @@ import {AngularFireStorageModule} from '@angular/fire/compat/storage'
 import { ProductosComponent } from './paginas/productos/productos.component';
 import { CrudComponent } from './paginas/crud/crud.component';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditComponent } from './paginas/edit/edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductosComponent,
-    CrudComponent
+    CrudComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
