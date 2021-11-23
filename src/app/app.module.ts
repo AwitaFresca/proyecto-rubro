@@ -14,14 +14,22 @@ import {AngularFireStorageModule} from '@angular/fire/compat/storage'
 import { ProductosComponent } from './paginas/productos/productos.component';
 import { CrudComponent } from './paginas/crud/crud.component';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EditComponent } from './paginas/edit/edit.component';
+
+
+import {NgxPaginationModule} from 'ngx-pagination';
+import { FooterComponent } from './componentes/footer/footer.component';
+import { InicioComponent } from './paginas/inicio/inicio.component';
+import { ContactoComponent } from './paginas/contacto/contacto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductosComponent,
     CrudComponent,
-    EditComponent
+
+    FooterComponent,
+     InicioComponent,
+     ContactoComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +37,7 @@ import { EditComponent } from './paginas/edit/edit.component';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

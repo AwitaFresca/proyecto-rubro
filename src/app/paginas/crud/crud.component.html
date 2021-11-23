@@ -50,50 +50,238 @@
   </div>
 </div>
 -->
-<div style="width: 100%;" class="container1"></div>
-  <div style="width: 50%; margin: auto;">
-  <h2>Agregar productos</h2>
-  <form (ngSubmit)="submit()" [formGroup]="form" #f="ngForm">
-    <input type="hidden" formControlName="id">
 
-  <label for="nombre">Nombre</label>
-  <input matInput placeholder="Nombre" class="form-control" type="text" formControlName="nombre">
+<h1 style="text-align: center;">Configuracion</h1>
 
-  <label for="nombre">Descripcion</label>
-  <input matInput placeholder="Descripcion" class="form-control" type="text" formControlName="descripcion">
+<div class="container1">
 
-  <label for="url">Imagen</label>
-  <input matInput placeholder="url" class="form-control" type="text" formControlName="url">
-  <div style="text-align: center;">
-    <button style="margin-top:2%; text-align:center" class="btn btn-info" id="submit" mat-raised-button type="submit"  >Agregar</button>
-  </div>
-  </form>
-</div>
+  <div class="crud">
+    <div class="pestaña1 row">
 
-  <div class="media" *ngFor="let producto of productos">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="row">
-            <div class="media-figure">
-            <img class="imagen1" style="width: 150px; height: 100px;" [src]="producto.url">
-            </div>
-          </th>
-          <th scope="col">
-          <div style="text-align: center;" class="">
-            <h5>{{producto.nombre}}</h5>
-            <p>{{producto.descripcion}}</p>
-            <div  class="btn--group">
-              <button style="margin: auto;" class="btn btn-warning" (click)='irEdit(producto)'>Editar</button>
-              <button class="btn btn-danger" (click)='borrarProducto(producto.id)'>Eliminar</button>
-            </div>  
+
+
+      <div class="buscar  d-flex justify-content-end p-2">
+        <!-- Button que llama al modal de agregar productos -->
+        <button style=" width: auto;" type="button" class="btn btn-primary" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
+          <i class="fas fa-plus"><a> Agregar </a></i>
+        </button>
+      </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar productos</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-        </th>
-        </tr>
-  </thead>
-  </table>
-</div>
+          <div class="modal-body">
+            <div style="width: 100%;" class="container1"></div>
+            <div style="width: 90%; margin: auto;">
 
+              <form (ngSubmit)="submit()" [formGroup]="form" #f="ngForm">
+                <input type="hidden" formControlName="id">
+
+                <label for="nombre">Nombre</label>
+                <input matInput placeholder="Nombre" class="form-control" type="text" formControlName="nombre">
+
+                <label for="nombre">Descripcion</label>
+                <textarea matInput placeholder="Descripcion" class="form-control" rows="3" type="text"
+                  formControlName="descripcion"></textarea>
+                
+                <label for="nombre">Precio</label>
+                <input matInput placeholder="Precio" class="form-control" type="number" formControlName="precio">
+
+                <label for="url">Imagen</label>
+                <input matInput placeholder="url" class="form-control" type="text" formControlName="url">
+
+                <!--
+                  <label for="inputFile" class="labelInputFile">Subir imagen</label>
+                  <input type="file" accept=".png .jpg .jpeg" (change)="cargarImagen($event)" class="form-control"
+                    formControlName="url" id="inputFile">
+                  -->
+                <div style="text-align: center;">
+                  <button style="margin-top:2%; text-align:center" data-bs-dismiss="modal" class="btn btn-info"
+                    id="submit" mat-raised-button type="submit">Agregar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+    
+    <table class="table">
+        <thead>
+          <tr style="text-align: center;" class="centrar2">
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Editar/Eliminar</th>
+          </tr>
+    
+        </thead>
+      
+        <tbody  *ngFor="let producto of productos">
+          <tr>
+            <td scope="row">
+              <div style="display: flex;" class="media-figure">
+                <img class="imagen1" style="width: 150px; height: 110px; margin: auto;" alt="" [src]="producto.url">
+              </div>
+            </td>
+    
+            <td scope="col">
+              <div style="text-align: center;" class="">
+                <h5>{{producto.nombre}}</h5>
+    
+    
+    
+              </div>
+            </td>
+    
+            <td scope="col">
+              <div style="text-align: center;">
+                <p>{{producto.descripcion | slice:0:65}}</p>
+              </div>
+            </td>
+    
+            <td scope="col">
+              <div style="text-align: center;">
+                <p class="fas fa-coins"> {{producto.precio}}</p>
+              </div>
+            </td>
+    
+            <td scope="col">
+              <div id="Cambiarya" style="text-align: center; margin: auto; width: 100%;" class="btn--group">
+                <!-- Button que llama a el modal de editar -->
+                <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                  (click)='seleccionarProducto(producto)'>
+                  Editar
+                </button>
+    
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Editar producto </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div style="width: 100%;" class="container1"></div>
+                        <div style="width: 90%; margin: auto;">
+    
+                          <form [formGroup]="form" #f="ngForm">
+                            <input type="hidden" formControlName="id">
+    
+                            <label for="nombre">Nombre</label>
+                            <input matInput placeholder="Nombre" class="form-control" type="text" formControlName="nombre">
+    
+                            <label for="descripcion">Descripcion</label>
+                            <textarea matInput placeholder="Descripcion" class="form-control" type="text"
+                              formControlName="descripcion"></textarea>
+    
+                            <label for="precio">Precio</label>
+                            <input matInput placeholder="Precio" class="form-control" type="number"
+                              formControlName="precio">
+    
+                            <label for="url">Imagen</label>
+                            <input matInput placeholder="url" class="form-control" type="text" formControlName="url">
+                          </form>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                          (click)='actualizarProducto(producto.id)'>Guardar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn btn-danger" (click)='borrarProducto(producto.id)'>Eliminar</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      
+    </table>
+</div>  
+
+
+
+
+
+
+<div class="datatable-container">
+  <div class="header-tools">
+    <div>
+      <ul>
+        <li>
+          <button>
+            <i class="fab fa-facebook"></i>
+          </button>
+        </li>
+        <li>
+          <button>
+            <i class="fab fa-facebook"></i>
+          </button>
+        </li>
+        <li>
+          <button>
+            <i class="fab fa-facebook"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="search">
+      <input type="text" name="" id="" class="search-input">
+    </div>
+     
+  </div>
+
+  <table class="datatable">
+    <thead>
+      <tr>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Stock</th>
+        <th>Precio</th>
+        <th>Editar/Eliminar</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>imagen</td>
+        <td>martillo</td>
+        <td>esto es un martillo</td>
+        <td>50</td>
+        <td>9000</td>
+        <td>editar</td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <div class="footer-tools">
+    <div class="pages">
+      
+    </div>
+  </div>
+
+
+</div>
 
 
 <!--

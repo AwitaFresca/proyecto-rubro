@@ -49,9 +49,8 @@ export class ProductoService {
 
 
 
-  actualizarProducto(idCurso: string, data: Producto) {
-
-
+  public actualizarProducto(prodId: string, data: any) {
+    return this.firestore.collection('productos').doc(prodId).set(data);
   }
 
   agregarProducto(data: Producto) {

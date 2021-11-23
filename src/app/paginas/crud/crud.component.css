@@ -1,5 +1,47 @@
 
+#inputFile{
+    display: none;
+}
 
 .imagen{
     width: 20px;
 }
+
+.labelInputFile{
+    width: 3rem;
+    cursor: pointer;
+}
+
+.container1{
+    width: 100%;
+    
+}
+
+.crud{
+    width: 85%;
+    margin: auto;
+    /*
+    background-color: rgb(61, 68, 73);
+    color: white;
+    */
+    
+}
+
+.pestaña1{
+    display: flex;
+    flex-flow: row;
+    background-color: rgb(61, 61, 61);
+}
+
+
+
+a{
+
+    font-family: 'Roboto', sans-serif;
+    font-size: small;
+    font-weight: bold;
+}
+
+
+
+
