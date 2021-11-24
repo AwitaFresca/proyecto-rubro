@@ -15,6 +15,13 @@ export class ProductosComponent implements OnInit {
   constructor(private productoService: ProductoService) { }
 
   ngOnInit(): void {
+
+    this.productoService.productos
+      .subscribe((respuesta) =>{
+        this.productos = respuesta;
+        console.log(this.productos);
+      })
+      
   }
 
  

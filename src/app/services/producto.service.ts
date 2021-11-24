@@ -8,9 +8,7 @@ import { Producto } from 'src/models/productos.interface';
   providedIn: 'root'
 })
 export class ProductoService {
-  doc(proId: string) {
-    throw new Error('Method not implemented.');
-  }
+
   public productos!: Observable<Producto[]>;
   public productoCollection!: AngularFirestoreCollection<Producto>;
 
@@ -19,25 +17,25 @@ export class ProductoService {
     console.log(this.productoCollection);
     this.obtenerProductos();
   }
-  //obtiene todos los cursos de la base de datos
+  //obtiene todos los productos de la base de datos
   obtenerProductos() {
     this.productos = this.productoCollection!.snapshotChanges().pipe(
       map(action => action.map(a => a.payload.doc.data() as Producto))
     )
   }
-  //obtiene un curso de la base de datos por el id
-  obtenerProducto(idCurso: string) {
 
-  }
+  //obtiene un producto de la base de datos por el id
   public getProductoById(prodId: string) {
     return this.firestore.collection('productos').doc(prodId).snapshotChanges();
   }
 
-  public createProducto(prod: Producto): Promise<void> {
+  public createProducto(prod: Producto, image:string): Promise<void> {
     return new Promise(async (resolve, reject) => {
       try {
         const id = this.firestore.createId();
         prod.id = id;
+        console.log(Image)
+        prod.url = image;
         const result = await this.productoCollection?.doc(id).set(prod);
         resolve(result)
       }

@@ -11,6 +11,7 @@ export class StorageService {
 
   constructor() { }
 
+  /*
   async subirImagen(nombre: string, imgBase64: any){
 
     try{
@@ -22,4 +23,6 @@ export class StorageService {
     }
 
   }
+
+  */
 }

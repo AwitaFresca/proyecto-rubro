@@ -31,6 +31,11 @@
     display: flex;
     flex-flow: row;
     background-color: rgb(61, 61, 61);
+    border-radius: 20px;
+}
+
+.pestaña1 button{
+    border-radius: 20px;
 }
 
 

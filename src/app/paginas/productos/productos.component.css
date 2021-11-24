@@ -1,0 +1,36 @@
+
+.catalogo{
+    width: 100%;
+}
+
+.productos{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 85%;
+    
+}
+
+.seccion{
+    padding-left: 2px;
+}
+
+.productos .card{
+    width: 100%;
+}
+
+@media screen and (max-width: 767px){
+    
+    .catalogo{
+        display: block;
+    }
+
+    .seccion{
+        display: none;
+        width: 100%;
+    }
+
+    .productos{
+        width: 100%;
+    }
+
+}

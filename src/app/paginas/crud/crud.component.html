@@ -1,24 +1,5 @@
 
-
 <!--
-<div class="container">
-<div class="row">
-
-    <div class="col-4" *ngFor="let curso of cursos">
-        <div class="card" style="width: 18rem;">
-            <img [src]="curso.url" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title">{{curso.nombre}}</h5>
-            <p class="card-text">{{curso.descripcion | slice:0:20}}...</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-
-
-
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -51,7 +32,7 @@
 </div>
 -->
 
-<h1 style="text-align: center;">Configuracion</h1>
+<h1 style="text-align: center;">Agregar productos</h1>
 
 <div class="container1">
 
@@ -97,13 +78,19 @@
                 <input matInput placeholder="Precio" class="form-control" type="number" formControlName="precio">
 
                 <label for="url">Imagen</label>
-                <input matInput placeholder="url" class="form-control" type="text" formControlName="url">
+                <input matInput placeholder="url" class="form-control" type="text" [value]="urlImage" formControlName="url">
 
                 <!--
                   <label for="inputFile" class="labelInputFile">Subir imagen</label>
                   <input type="file" accept=".png .jpg .jpeg" (change)="cargarImagen($event)" class="form-control"
                     formControlName="url" id="inputFile">
-                  -->
+                -->
+
+                <div class="mb-3">
+                  <label for="formFile" class="form-label">Subir imagen</label>
+                  <input class="form-control" type="file" (change)="cargarImagen($event)" id="formFile">
+                </div>
+
                 <div style="text-align: center;">
                   <button style="margin-top:2%; text-align:center" data-bs-dismiss="modal" class="btn btn-info"
                     id="submit" mat-raised-button type="submit">Agregar</button>
@@ -157,26 +144,26 @@
     
             <td scope="col">
               <div style="text-align: center;">
-                <p class="fas fa-coins"> {{producto.precio}}</p>
+                <p> <img style="width: 20px; height: 17px;" src="assets/icons/dolar.png"> {{producto.precio}}</p>
               </div>
             </td>
     
             <td scope="col">
               <div id="Cambiarya" style="text-align: center; margin: auto; width: 100%;" class="btn--group">
                 <!-- Button que llama a el modal de editar -->
-                <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                <button type="button" class="btn btn-warning m-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                   (click)='seleccionarProducto(producto)'>
                   Editar
                 </button>
     
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
                   aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Editar producto </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)='cerrarModal()'></button>
                       </div>
                       <div class="modal-body">
                         <div style="width: 100%;" class="container1"></div>
@@ -220,7 +207,7 @@
 
 
 
-
+<!--
 
 <div class="datatable-container">
   <div class="header-tools">
@@ -283,6 +270,7 @@
 
 </div>
 
+-->
 
 <!--
 

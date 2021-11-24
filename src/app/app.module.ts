@@ -16,10 +16,14 @@ import { CrudComponent } from './paginas/crud/crud.component';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+
+
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { InicioComponent } from './paginas/inicio/inicio.component';
 import { ContactoComponent } from './paginas/contacto/contacto.component';
+import { LoginComponent } from './paginas/login/login.component';
+import { PageNotFoundComponent } from './paginas/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,9 @@ import { ContactoComponent } from './paginas/contacto/contacto.component';
 
     FooterComponent,
      InicioComponent,
-     ContactoComponent
+     ContactoComponent,
+     LoginComponent,
+     PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +44,7 @@ import { ContactoComponent } from './paginas/contacto/contacto.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
     NgxPaginationModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

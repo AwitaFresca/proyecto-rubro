@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Producto } from 'src/models/productos.interface';
+import { AuthService } from './services/auth.service';
 import { ProductoService } from './services/producto.service';
 
 
@@ -11,7 +12,17 @@ import { ProductoService } from './services/producto.service';
 export class AppComponent {
   title = 'proyecto-rubro';
   public productos: Producto [] = [];
-  constructor(private productoService:ProductoService){
 
+  userLogged = this.authService.getUserLogged();
+
+  constructor(private productoService:ProductoService,
+    private authService: AuthService){
+
+  }
+
+  
+
+  logout(){
+    this.authService.logout();
   }
 }
