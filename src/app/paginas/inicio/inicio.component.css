@@ -1,0 +1,295 @@
+.container1{
+    width: 100%;
+    height: 20%;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+
+.imagen1{
+    width: 100%;
+    height: 500px;
+    
+    filter: brightness(50%);
+    display: inline-block;
+    position: relative;	
+    text-align: center;
+    
+
+   
+}
+
+.centrar1{
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 38px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+.centrar1 h2{
+    text-align: center;
+    font-size: 42px;
+
+}
+
+/* container1.5 (del medio) */
+
+.containermedio{
+    width: 100%;
+    display: flex;
+    position: relative;
+    padding: 4px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.textocata{
+    padding: 4px;
+    width: 50%;
+    left: 10px;
+    margin-left: 10px;
+}
+
+.textocata h1{
+    text-align: center;
+}
+
+.textocata p{
+    text-align: justify;
+}
+
+.botonperso{
+    background-image: url(/assets/images/taladro.png);
+}
+
+.centrado2{
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    
+}
+
+.urgent{
+    visibility: hidden;
+}
+
+
+.p-button-rounded{
+    background-color: black;
+    border-color: black;
+    border-radius: 25px;
+    width: 135px;
+    height: 35px;
+    
+}
+
+.p-button-rounded .buttom:hover{
+    background: #fff;
+}
+
+.p-button-rounded::before{
+    content: 'Ir al catalogo';
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    position: fixed;
+    top:15%;
+    left: 8%;
+    
+    transition: all .5s ease-in-out;
+    
+    
+}
+
+.p-button-rounded:hover::before{
+    top: -32px;
+    
+}
+
+.p-button-rounded::after{
+    font-family: 'FontAwesome';
+    content: "\f518";
+    font-size: 19px;
+    color: white;
+    position:fixed;
+    top:150%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    transition: all .5s ease-in-out;
+    
+
+}
+
+.p-button-rounded:hover::after{
+    top: 50%;
+    
+    
+}
+
+/* Portada */
+
+.container2{
+    width: 100%;
+    height: 400px;
+    position: relative;
+    background-image: url(/assets/images/herramientas-llave.jpg);
+    background-size: 200%;
+    animation: movimiento 20s infinite linear alternate;
+    
+}
+
+@keyframes movimiento{
+    from{
+        background-position: bottom left;
+    }to{
+        background-position: top right;
+    }
+
+}
+
+.capa-gradient{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: -webkit-linear-gradient(left, black, #0672d0);
+    opacity: 0.5;
+
+}
+
+.container-details{
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    margin: auto;
+    font-family: 'Raleway', sans-serif;
+}
+
+.details{
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    top: 20px;
+    left: 10px;
+    color: white;
+}
+
+.details h1{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 100;
+}
+
+.details p{
+    text-align: justify;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+
+
+
+
+.texto1{
+    margin-top: 7%;
+}
+
+.texto1 h1{
+    text-align: center;
+}
+
+.texto1 p{
+    text-align: center;
+}
+
+
+
+
+
+
+/* container3 */
+
+.container3{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.accordion{
+    width: 50%;
+}
+
+/* BOTON ANIMADO */
+
+
+.fourth {
+    border-color: #000000;
+    color: #fff;
+    background-image: -webkit-linear-gradient(45deg, #000000 50%, transparent 50%);
+    background-image: linear-gradient(45deg, #000000 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+  }
+  .fourth:hover {
+    background-position: 0;
+  }
+
+@media screen and (max-width: 500px) {
+    .details p{
+        font-size: 18px;
+    }
+
+    .codigo img{
+        height: 200px;
+        width: 200px;
+    }
+
+    .centrar1{
+        top: 45%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

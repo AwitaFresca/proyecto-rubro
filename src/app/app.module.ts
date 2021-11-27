@@ -24,6 +24,7 @@ import { InicioComponent } from './paginas/inicio/inicio.component';
 import { ContactoComponent } from './paginas/contacto/contacto.component';
 import { LoginComponent } from './paginas/login/login.component';
 import { PageNotFoundComponent } from './paginas/page-not-found/page-not-found.component';
+import { NosotrosComponent } from './paginas/nosotros/nosotros.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PageNotFoundComponent } from './paginas/page-not-found/page-not-found.c
      InicioComponent,
      ContactoComponent,
      LoginComponent,
-     PageNotFoundComponent
+     PageNotFoundComponent,
+     NosotrosComponent
   ],
   imports: [
     BrowserModule,

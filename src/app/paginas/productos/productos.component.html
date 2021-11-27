@@ -4,7 +4,7 @@
 
     <div class="seccion">
         <div class="list-group">
-            <a routerLink="productos" class="list-group-item list-group-item-action">
+            <a routerLink="/productos" class="list-group-item list-group-item-action">
               Productos
             </a>
             <a  class="list-group-item list-group-item-action">Materiales de construccion</a>
@@ -20,12 +20,15 @@
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title" style="text-align: center; ">{{producto.nombre}}</h5>
-                  <p class="card-text">{{producto.descripcion}}</p>
+                  <p class="card-text" style="text-align: justify;">{{producto.descripcion}}</p>
                   <p class="card-text ">Precio: <img style="width: 20px; height: 17px;" src="assets/icons/dolar.png">  {{producto.precio}}</p>
                 </div>
               </div>
             </div>
           </div>
-    </div>
+
+          
+    
+      </div>
 
 </div>

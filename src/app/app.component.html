@@ -1,50 +1,69 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav style="background-color: #202020;" class="navbar navbar-expand-lg navbar-dark bg-#202020">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="inicio">
-        <img src="assets/icons/icono10.ico" alt="" width="28" height="24" class="d-inline-block align-text-top">
-        Big Tools</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <a style="font-family: 'Passero One', cursive;" class="navbar-brand" routerLink="inicio">
+      <img src="assets/icons/manuales.png" alt="" width="34" height="28" class="d-inline-block align-text-top">
+      </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse " id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="inicio">Inicio</a>
+          
+          <a class="nav-link" routerLink="inicio">
+            <img width="19" height="18" src="/assets/icons/home-5-32.ico">
+            Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="productos">Catalogo</a>
+          <a class="nav-link" routerLink="productos">
+            <img width="19" height="18" src="/assets/icons/literature-32.ico">
+            Catalogo</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="contacto">Contacto</a>
+          <a class="nav-link" routerLink="nosotros">
+            <img width="19" height="18" src="/assets/icons/conference-32.ico">
+            Sobre Nosotros</a>
         </li>
-        
-        
-        
-      </ul>
-      
+        <li class="nav-item">
+          <a class="nav-link" routerLink="contacto">
+            <img width="19" height="18" src="/assets/icons/contacts-64.ico">
+            Contacto</a>
+        </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" *ngIf="userLogged | async as user; else btnIngresar" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+
+
+      </ul>
+
+
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" *ngIf="userLogged | async as user; else btnIngresar" href="#"
+          id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           {{user.email}}
         </a>
         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-          <li><a class="dropdown-item" routerLink="crud">Crud</a></li>
-          <li><a class="dropdown-item" style="cursor: pointer;" (click)="logout()">Salir</a></li>
-          
+          <li><a style="text-align: center;" class="dropdown-item" routerLink="crud">
+            <img width="19" height="18" src="/assets/icons/data-configuration-64.ico">
+            Crud</a></li>
+          <li><a class="dropdown-item" style="cursor: pointer; text-align: center;" (click)="logout()">
+            <img width="19" height="18" src="/assets/icons/logout-64.ico">
+            Cerrar sesion</a></li>
+
         </ul>
-    </li>
+      </div>
 
-    
 
-    <ng-template #btnIngresar>
+
+      <ng-template #btnIngresar>
         <button class="btn btn-primary" routerLink="login">Ingresar</button>
-    </ng-template>
+      </ng-template>
     </div>
-    
-    
+
+
   </div>
-  
+
 </nav>
 
 <router-outlet></router-outlet>

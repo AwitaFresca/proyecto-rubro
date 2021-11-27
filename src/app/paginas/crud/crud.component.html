@@ -76,11 +76,12 @@
                 
                 <label for="nombre">Precio</label>
                 <input matInput placeholder="Precio" class="form-control" type="number" formControlName="precio">
-
+                
+                <!--
                 <label for="url">Imagen</label>
                 <input matInput placeholder="url" class="form-control" type="text" [value]="urlImage" formControlName="url">
 
-                <!--
+                
                   <label for="inputFile" class="labelInputFile">Subir imagen</label>
                   <input type="file" accept=".png .jpg .jpeg" (change)="cargarImagen($event)" class="form-control"
                     formControlName="url" id="inputFile">
@@ -88,7 +89,7 @@
 
                 <div class="mb-3">
                   <label for="formFile" class="form-label">Subir imagen</label>
-                  <input class="form-control" type="file" (change)="cargarImagen($event)" id="formFile">
+                  <input class="form-control" type="file" (change)="obtenerImagen($event)" formControlName="url" id="formFile">
                 </div>
 
                 <div style="text-align: center;">
@@ -182,9 +183,14 @@
                             <label for="precio">Precio</label>
                             <input matInput placeholder="Precio" class="form-control" type="number"
                               formControlName="precio">
-    
+                            <!--
                             <label for="url">Imagen</label>
-                            <input matInput placeholder="url" class="form-control" type="text" formControlName="url">
+                            <input matInput placeholder="url" class="form-control" type="text" [value]="urlImage" formControlName="url">
+                              -->
+                            <div class="mb-3">
+                              <label for="formFile" class="form-label">Subir imagen</label>
+                              <input class="form-control" type="file" (change)="obtenerImagen($event)" formControlName="url" id="formFile">
+                            </div>
                           </form>
                         </div>
                       </div>

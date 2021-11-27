@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage, AngularFireStorageModule } from '@angular/fire/compat/storage';
 import {FormBuilder, Validators} from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
+
 import { finalize, Observable } from 'rxjs';
 import { ProductoService } from 'src/app/services/producto.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -54,6 +55,9 @@ export class CrudComponent implements OnInit {
     public urlImage!: Observable<string>;
     public image:string = '';
 
+    //imagen
+    private file!: File;
+
     ngOnInit(): void {
       this.config = {
         itemsPerPage: 5,
@@ -78,7 +82,8 @@ export class CrudComponent implements OnInit {
         this.form.value.url = this.image;
         console.log(this.form.value);
 
-        this.productoService.createProducto(this.form.value, this.image);
+        this.productoService.cargarImagen(this.file,this.form.value);
+        alert("Producto agregado con exito")
         this.form.reset();
       }
       else{
@@ -146,16 +151,31 @@ export class CrudComponent implements OnInit {
     */
   
   //FUNCION PARA CARGAR UNA IMAGEN LOCAL
+  /*
   cargarImagen(e: any){
     const id = Math.random().toString(36).substring(2);
     const file = e.target.files[0];
-    const filePath = `uploads/producto_${id}`;
+    const filePath = `Imagenes/productos/${file.name}`;
     const ref = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
 
-    task.snapshotChanges().pipe(finalize(() => this.urlImage = ref.getDownloadURL())).subscribe();
+    task.snapshotChanges().pipe(finalize(() => {
+      ref.getDownloadURL().subscribe((url =>{
+        this.urlImage = url;
+        producto.url = this.urlImage;
+      }))
+    }
+    
+  }
+*/
+
+
+  obtenerImagen(event: any){
+    this.file = event.target.files[0];
+
   }
 
+  
   cerrarModal(){
     this.form.reset();
     
