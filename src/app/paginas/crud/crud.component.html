@@ -1,37 +1,4 @@
 
-<!--
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img [src]="cursos[0].url" class="d-block w-100" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
--->
-  
-<!-- 
-<div class="media" *ngFor="let curso of cursos">
-  <div class="media-figure">
-    <img [src]="curso.data.url">
-  </div>
-  <div class="media-body">
-    <p>{{curso.data.nombre}}</p>
-    <div class="btn--group">
-      <button class="btn--green btn--s btn1">Editar</button>
-      <button class="btn--red btn--s btn2">Eliminar</button>
-    </div>
-  </div>
-</div>
--->
-
 <h1 style="text-align: center;">Agregar productos</h1>
 
 <div class="container1">
@@ -73,10 +40,10 @@
                 <label for="nombre">Descripcion</label>
                 <textarea matInput placeholder="Descripcion" class="form-control" rows="3" type="text"
                   formControlName="descripcion"></textarea>
-                
+
                 <label for="nombre">Precio</label>
                 <input matInput placeholder="Precio" class="form-control" type="number" formControlName="precio">
-                
+
                 <!--
                 <label for="url">Imagen</label>
                 <input matInput placeholder="url" class="form-control" type="text" [value]="urlImage" formControlName="url">
@@ -89,7 +56,8 @@
 
                 <div class="mb-3">
                   <label for="formFile" class="form-label">Subir imagen</label>
-                  <input class="form-control" type="file" (change)="obtenerImagen($event)" formControlName="url" id="formFile">
+                  <input class="form-control" type="file" (change)="obtenerImagen($event)" formControlName="url"
+                    id="formFile">
                 </div>
 
                 <div style="text-align: center;">
@@ -107,202 +75,110 @@
 
 
 
-    
+
     <table class="table">
-        <thead>
-          <tr style="text-align: center;" class="centrar2">
-            <th>Imagen</th>
-            <th>Nombre</th>
-            <th>Descripcion</th>
-            <th>Precio</th>
-            <th>Editar/Eliminar</th>
-          </tr>
-    
-        </thead>
-      
-        <tbody  *ngFor="let producto of productos">
-          <tr>
-            <td scope="row">
-              <div style="display: flex;" class="media-figure">
-                <img class="imagen1" style="width: 150px; height: 110px; margin: auto;" alt="" [src]="producto.url">
-              </div>
-            </td>
-    
-            <td scope="col">
-              <div style="text-align: center;" class="">
-                <h5>{{producto.nombre}}</h5>
-    
-    
-    
-              </div>
-            </td>
-    
-            <td scope="col">
-              <div style="text-align: center;">
-                <p>{{producto.descripcion | slice:0:65}}</p>
-              </div>
-            </td>
-    
-            <td scope="col">
-              <div style="text-align: center;">
-                <p> <img style="width: 20px; height: 17px;" src="assets/icons/dolar.png"> {{producto.precio}}</p>
-              </div>
-            </td>
-    
-            <td scope="col">
-              <div id="Cambiarya" style="text-align: center; margin: auto; width: 100%;" class="btn--group">
-                <!-- Button que llama a el modal de editar -->
-                <button type="button" class="btn btn-warning m-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                  (click)='seleccionarProducto(producto)'>
-                  Editar
-                </button>
-    
-                <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
-                  aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar producto </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)='cerrarModal()'></button>
-                      </div>
-                      <div class="modal-body">
-                        <div style="width: 100%;" class="container1"></div>
-                        <div style="width: 90%; margin: auto;">
-    
-                          <form [formGroup]="form" #f="ngForm">
-                            <input type="hidden" formControlName="id">
-    
-                            <label for="nombre">Nombre</label>
-                            <input matInput placeholder="Nombre" class="form-control" type="text" formControlName="nombre">
-    
-                            <label for="descripcion">Descripcion</label>
-                            <textarea matInput placeholder="Descripcion" class="form-control" type="text"
-                              formControlName="descripcion"></textarea>
-    
-                            <label for="precio">Precio</label>
-                            <input matInput placeholder="Precio" class="form-control" type="number"
-                              formControlName="precio">
-                            <!--
+      <thead>
+        <tr style="text-align: center;" class="centrar2">
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Precio</th>
+          <th>Editar/Eliminar</th>
+        </tr>
+
+      </thead>
+
+      <tbody *ngFor="let producto of productos">
+        <tr>
+          <td scope="row">
+            <div style="display: flex;" class="media-figure">
+              <img class="imagen1" style="width: 150px; height: 110px; margin: auto;" alt="" [src]="producto.url">
+            </div>
+          </td>
+
+          <td scope="col">
+            <div style="text-align: center;" class="">
+              <h5>{{producto.nombre}}</h5>
+
+
+
+            </div>
+          </td>
+
+          <td scope="col">
+            <div style="text-align: center;">
+              <p>{{producto.descripcion | slice:0:65}}</p>
+            </div>
+          </td>
+
+          <td scope="col">
+            <div style="text-align: center;">
+              <p> <img style="width: 20px; height: 17px;" src="assets/icons/dolar.png"> {{producto.precio}}</p>
+            </div>
+          </td>
+
+          <td scope="col">
+            <div id="Cambiarya" style="text-align: center; margin: auto; width: 100%;" class="btn--group">
+              <!-- Button que llama a el modal de editar -->
+              <button type="button" class="btn btn-warning m-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                (click)='seleccionarProducto(producto)'>
+                Editar
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Editar producto </h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        (click)='cerrarModal()'></button>
+                    </div>
+                    <div class="modal-body">
+                      <div style="width: 100%;" class="container1"></div>
+                      <div style="width: 90%; margin: auto;">
+
+                        <form [formGroup]="form" #f="ngForm">
+                          <input type="hidden" formControlName="id">
+
+                          <label for="nombre">Nombre</label>
+                          <input matInput placeholder="Nombre" class="form-control" type="text"
+                            formControlName="nombre">
+
+                          <label for="descripcion">Descripcion</label>
+                          <textarea matInput placeholder="Descripcion" class="form-control" type="text"
+                            formControlName="descripcion"></textarea>
+
+                          <label for="precio">Precio</label>
+                          <input matInput placeholder="Precio" class="form-control" type="number"
+                            formControlName="precio">
+                          <!--
                             <label for="url">Imagen</label>
                             <input matInput placeholder="url" class="form-control" type="text" [value]="urlImage" formControlName="url">
                               -->
-                            <div class="mb-3">
-                              <label for="formFile" class="form-label">Subir imagen</label>
-                              <input class="form-control" type="file" (change)="obtenerImagen($event)" formControlName="url" id="formFile">
-                            </div>
-                          </form>
-                        </div>
+                          <div class="mb-3">
+                            <label for="formFile" class="form-label">Subir imagen</label>
+                            <input class="form-control" type="file" (change)="obtenerImagen($event)"
+                              formControlName="url" id="formFile">
+                          </div>
+                        </form>
                       </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-                          (click)='actualizarProducto()'>Guardar</button>
-                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                        (click)='actualizarProducto()'>Guardar</button>
                     </div>
                   </div>
                 </div>
-                <button class="btn btn-danger" (click)='borrarProducto(producto.id)'>Eliminar</button>
               </div>
-            </td>
-          </tr>
-        </tbody>
-      
+              <button class="btn btn-danger" (click)='borrarProducto(producto.id)'>Eliminar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+
     </table>
-</div>  
-
-
-
-
-<!--
-
-<div class="datatable-container">
-  <div class="header-tools">
-    <div>
-      <ul>
-        <li>
-          <button>
-            <i class="fab fa-facebook"></i>
-          </button>
-        </li>
-        <li>
-          <button>
-            <i class="fab fa-facebook"></i>
-          </button>
-        </li>
-        <li>
-          <button>
-            <i class="fab fa-facebook"></i>
-          </button>
-        </li>
-      </ul>
-    </div>
-    <div class="search">
-      <input type="text" name="" id="" class="search-input">
-    </div>
-     
-  </div>
-
-  <table class="datatable">
-    <thead>
-      <tr>
-        <th>Imagen</th>
-        <th>Nombre</th>
-        <th>Descripcion</th>
-        <th>Stock</th>
-        <th>Precio</th>
-        <th>Editar/Eliminar</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <td>imagen</td>
-        <td>martillo</td>
-        <td>esto es un martillo</td>
-        <td>50</td>
-        <td>9000</td>
-        <td>editar</td>
-      </tr>
-    </tbody>
-
-  </table>
-
-  <div class="footer-tools">
-    <div class="pages">
-      
-    </div>
   </div>
 
 
-</div>
-
--->
-
-<!--
-
-
-
-    <form novalidate [formGroup]="form" (ngSubmit)="submit()" #f="ngForm" >
-      <div class="mb-3">
-        <input matInput placeholder="firstname" formControlName="firstname"  class="form-control"  name="firstname" ngModel required>
-      </div>
-      <br>
-      <div class="mb-3">
-        <input matInput placeholder="lastname" formControlName="lastname" class="form-control"  name="lastname" ngModel required>
-      </div>
-      <br>
-      <div class="mb-3">
-        <input matInput placeholder="email" class="form-control" formControlName="email"  name="email" ngModel required>
-      </div>
-      <br>
-      <div class="mb-3">
-        <textarea rows="4" cols="50" matInput placeholder="message" formControlName="message" class="form-control"  name="message" ngModel required></textarea>
-      </div>
-
-      <br>
-      <button id="submit" mat-raised-button type="submit" color="primary" [disabled]="f.invalid">Submit</button>
-      
-    
-  </form>
-
--->

@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  //Variable a desestructurar
   usuario = {
     email: '',
     password: ''
@@ -23,7 +24,9 @@ export class LoginComponent implements OnInit {
   //Funcion para iniciar sesion
   ingresar(){
     console.log(this.usuario);
+    //desestructuramos la variable usuario
     const { email, password } = this.usuario;
+    //Y pasamos las variables
     this.authService.login(email, password).then(res => {
       console.log("Se inicio sesion: ", res);
       alert('Ha iniciado sesion como administrador')
