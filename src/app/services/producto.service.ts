@@ -58,7 +58,7 @@ export class ProductoService {
   }
 
   
-  cargarImagen(file: File, producto: Producto){
+  cargarImagen(file: File, producto: Producto, idProducto?:string ){
     
     //nombro a la ruta a donde quiero que se guarde la imagen
     const filePath = `Imagenes/productos/${file.name}`;
@@ -73,7 +73,14 @@ export class ProductoService {
         this.urlImage = url;
         //Aqui agrego la URL de la imagen al producto
         producto.url = this.urlImage;
-        this.createProducto(producto);
+        //De esta forma se si quiero editar o agregar un producto, si viene un id lo edito, si no creo un producto nuevo
+        if(idProducto){
+          this.actualizarProducto(idProducto, producto)
+        }
+        else{
+          this.createProducto(producto);
+        }
+        
       }))
     })).subscribe();
     

@@ -26,9 +26,8 @@ export class LoginComponent implements OnInit {
     const { email, password } = this.usuario;
     this.authService.login(email, password).then(res => {
       console.log("Se inicio sesion: ", res);
-      
+      alert('Ha iniciado sesion como administrador')
     })
-
     
   }
 

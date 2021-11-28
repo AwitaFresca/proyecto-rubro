@@ -41,12 +41,13 @@
       <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" *ngIf="userLogged | async as user; else btnIngresar" href="#"
           id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img width="19" height="18" src="/assets/icons/user-64.ico">
           {{user.email}}
         </a>
         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
           <li><a style="text-align: center;" class="dropdown-item" routerLink="crud">
             <img width="19" height="18" src="/assets/icons/data-configuration-64.ico">
-            Crud</a></li>
+            Agregar productos</a></li>
           <li><a class="dropdown-item" style="cursor: pointer; text-align: center;" (click)="logout()">
             <img width="19" height="18" src="/assets/icons/logout-64.ico">
             Cerrar sesion</a></li>

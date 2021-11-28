@@ -55,8 +55,10 @@ export class CrudComponent implements OnInit {
     public urlImage!: Observable<string>;
     public image:string = '';
 
+    public prodId?: Producto;
+
     //imagen
-    private file!: File;
+    private file?: File;
 
     ngOnInit(): void {
       this.config = {
@@ -79,12 +81,13 @@ export class CrudComponent implements OnInit {
       if (this.form.valid) {
         //console.log(this.form.value);
         
-        this.form.value.url = this.image;
+        
         console.log(this.form.value);
 
-        this.productoService.cargarImagen(this.file,this.form.value);
+        this.productoService.cargarImagen(this.file!,this.form.value);
         alert("Producto agregado con exito")
         this.form.reset();
+        this.file = undefined;
       }
       else{
         alert("Llene todos los campos")
@@ -106,6 +109,8 @@ export class CrudComponent implements OnInit {
 
   
     seleccionarProducto(producto: Producto){
+      this.prodId = producto;
+      const {nombre, precio, descripcion, url} = producto;
       //llenar form con los datos de un producto en especifico para editar
       this.form.setValue({
         id: producto.id,
@@ -117,10 +122,23 @@ export class CrudComponent implements OnInit {
     }
 
     //FUNCION PARA EDITAR UN PRODUCTO
-    public actualizarProducto(prodId: string) {
-      console.log(prodId);
-      this.productoService.actualizarProducto(prodId, this.form.value);
-      this.form.reset();
+    async actualizarProducto() {
+      //PREGUNTO SI SE SUBE UN ARCHIVO EN EL FILE
+      //EN CASO DE QUE NO, SOLAMENTE EDITA LOS CAMPOS DEL FORM
+      if(this.file==undefined){
+        this.productoService.actualizarProducto(this.prodId!.id, this.form.value);
+        alert('Se ha editado el producto con exito')
+        this.form.reset();
+      }
+      //SI SUBO ALGO AL FILE, ENTONCES LO SUBE AL STORAGE
+      else{
+        this.productoService.cargarImagen(this.file!, this.form.value, this.prodId!.id)
+        this.prodId = undefined;
+        this.file = undefined;
+        alert('Se ha editado el producto con exito')
+        this.form.reset();
+      }
+      
     }
 
     pageChanged(event: any){
